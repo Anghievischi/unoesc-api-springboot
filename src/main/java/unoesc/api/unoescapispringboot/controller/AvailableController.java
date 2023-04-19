@@ -18,12 +18,14 @@ public class AvailableController {
     private HttpClient httpClient;
 
     @GetMapping("/available")
-    public ResponseEntity<String> getAvailable() throws IOException, InterruptedException {
+    public AcaoDTO getAvailable() throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://brapi.dev/api/available"))
             .GET()
             .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         return ResponseEntity.ok(response.body());
+        
+        return AcaoDTO 
     }
 }

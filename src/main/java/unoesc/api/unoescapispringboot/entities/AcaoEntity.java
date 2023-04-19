@@ -1,15 +1,19 @@
 package unoesc.api.unoescapispringboot.entities;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import java.io.Serializable;
 
-import com.google.common.collect.Tables;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@EntityScan
-Tables(name = "acao")
-public class AcaoEntity {
+@Entity
+@Table(name = "USUARIOS")
+public class AcaoEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String simbolo;

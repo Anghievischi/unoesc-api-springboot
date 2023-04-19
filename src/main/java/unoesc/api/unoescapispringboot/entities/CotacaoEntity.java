@@ -3,6 +3,8 @@ package unoesc.api.unoescapispringboot.entities;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+
 @Entity
 @Table(name = "cotacao")
 public class CotacaoEntity {

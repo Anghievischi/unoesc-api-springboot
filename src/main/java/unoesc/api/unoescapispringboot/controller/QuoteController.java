@@ -27,6 +27,7 @@ public class QuoteController {
             .GET()
             .build();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        
         return ResponseEntity.ok(response.body());
     }
 }
