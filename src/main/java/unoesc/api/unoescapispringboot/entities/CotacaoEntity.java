@@ -4,12 +4,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,19 +27,14 @@ public class CotacaoEntity {
 
     private LocalDateTime date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "acao_id")
-    private Acao acao;
-
     public CotacaoEntity() {}
 
-    public CotacaoEntity(BigDecimal cotacao, BigDecimal valormercado, BigDecimal volumetransacoes, String moeda, LocalDateTime date, Acao acao) {
+    public CotacaoEntity(BigDecimal cotacao, BigDecimal valormercado, BigDecimal volumetransacoes, String moeda, LocalDateTime date) {
         this.cotacao = cotacao;
         this.valormercado = valormercado;
         this.volumetransacoes = volumetransacoes;
         this.moeda = moeda;
         this.date = date;
-        this.acao = acao;
     }
 
     // getters e setters
@@ -93,13 +85,5 @@ public class CotacaoEntity {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
-    }
-
-    public Acao getAcao() {
-        return acao;
-    }
-
-    public void setAcao(Acao acao) {
-        this.acao = acao;
     }
 }
