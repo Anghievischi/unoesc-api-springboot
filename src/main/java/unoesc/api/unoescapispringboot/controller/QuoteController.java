@@ -1,33 +1,33 @@
 package unoesc.api.unoescapispringboot.controller;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import unoesc.api.unoescapispringboot.entities.QuoteDTO;
+import unoesc.api.unoescapispringboot.service.QuoteService;
 
+@RestController
+@RequestMapping("/api/quote")
 public class QuoteController {
 
-    @Autowired
-    private HttpClient httpClient;
+    private final QuoteService quoteService;
 
-    @GetMapping("/quote/{symbol}")
-    public ResponseEntity<String> getQuote(@PathVariable String symbol) throws IOException, InterruptedException {
-        String url = String.format("https://brapi.dev/api/quote/%s", symbol);
-        HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create(url))
-            .GET()
-            .build();
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        
-        return ResponseEntity.ok(response.body());
+    public QuoteController(QuoteService quoteService) {
+        this.quoteService = quoteService;
     }
+
+    @GetMapping("/{symbol}")
+    public ResponseEntity<QuoteDTO> getQuote(@PathVariable String symbol) {
+        QuoteDTO quoteDTO = quoteService.getQuote(symbol);
+        return ResponseEntity.ok(quoteDTO);
+    }
+
 }
+
+
+
+
