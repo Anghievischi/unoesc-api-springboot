@@ -86,4 +86,19 @@ public class CotacaoEntity {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
+
+    public void setSymbol(Object symbol) {
+    }
+
+    public void setShortName(Object shortName) {
+    }
+
+    public void setRegularMarketPrice(Object regularMarketPrice) {
+    }
+
+    public void setMarketCap(Object marketCap) {
+    }
+
+    public void setCurrency(Object currency) {
+    }
 }
