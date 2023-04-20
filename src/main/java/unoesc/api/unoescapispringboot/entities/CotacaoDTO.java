@@ -1,5 +1,6 @@
 package unoesc.api.unoescapispringboot.entities;
 
+import java.time.LocalDateTime;
 
 public class CotacaoDTO {
     private Double cotacao;
