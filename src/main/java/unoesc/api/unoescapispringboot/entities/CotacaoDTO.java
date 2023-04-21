@@ -9,5 +9,50 @@ public class CotacaoDTO {
     private String moeda;
     private LocalDateTime data;
 
-    // construtor, getters e setters
+    public CotacaoDTO() {
+        
+    }
+     // construtor, getters e setters
+
+    public Double getCotacao() {
+        return cotacao;
+    }
+
+    public void setCotacao(Double cotacao) {
+        this.cotacao = cotacao;
+    }
+
+    public Double getValorMercado() {
+        return valorMercado;
+    }
+
+    public void setValorMercado(Double valorMercado) {
+        this.valorMercado = valorMercado;
+    }
+
+    public Long getVolumeTransacoes() {
+        return volumeTransacoes;
+    }
+
+    public void setVolumeTransacoes(Long volumeTransacoes) {
+        this.volumeTransacoes = volumeTransacoes;
+    }
+
+    public String getMoeda() {
+        return moeda;
+    }
+
+    public void setMoeda(String moeda) {
+        this.moeda = moeda;
+    }
+
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
+
+   
 }

@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import unoesc.api.unoescapispringboot.entities.AcaoDTO;
 import unoesc.api.unoescapispringboot.entities.CotacaoDTO;
+import unoesc.api.unoescapispringboot.entities.ListAvailable;
 
 @Service
 public class AcaoCotacaoService {
@@ -26,18 +27,12 @@ public class AcaoCotacaoService {
     private RestTemplate restTemplate;
 
     public List<AcaoDTO> getAcoes() {
-        String url = "https://brapi.dev/api/available";
-        ResponseEntity<Map<String, Object>> responseEntity = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<Map<String, Object>>() {});
-        Map<String, Object> responseMap = responseEntity.getBody();
+        ResponseEntity<ListAvailable> acaoReponse=
+        restTemplate.getForEntity("https://brapi.dev/api/available",ListAvailable.class);
+            
+        List<AcaoDTO> acaoDTO= (List<AcaoDTO>) acaoReponse.getBody();
 
-        List<AcaoDTO> acoes = new ArrayList<>();
-        List<String> simbolos = (List<String>) responseMap.get("stocks");
-        for (String simbolo : simbolos) {
-            AcaoDTO acao = new AcaoDTO();
-            acao.setSimbolo(simbolo);
-            acoes.add(acao);
-        }
-        return acoes;
+        return acaoDTO;
     }
 
     public CotacaoDTO getCotacao(String simbolo) {
