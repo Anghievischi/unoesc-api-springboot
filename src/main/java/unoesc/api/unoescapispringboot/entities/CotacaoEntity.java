@@ -25,16 +25,16 @@ public class CotacaoEntity {
 
     private String moeda;
 
-    private LocalDateTime date;
+    private LocalDateTime data;
 
     public CotacaoEntity() {}
 
-    public CotacaoEntity(BigDecimal cotacao, BigDecimal valormercado, BigDecimal volumetransacoes, String moeda, LocalDateTime date) {
+    public CotacaoEntity(BigDecimal cotacao, BigDecimal valormercado, BigDecimal volumetransacoes, String moeda, LocalDateTime data) {
         this.cotacao = cotacao;
         this.valormercado = valormercado;
         this.volumetransacoes = volumetransacoes;
         this.moeda = moeda;
-        this.date = date;
+        this.data = data;
     }
 
     // getters e setters
@@ -80,11 +80,11 @@ public class CotacaoEntity {
     }
 
     public LocalDateTime getDate() {
-        return date;
+        return data;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setDate(LocalDateTime data) {
+        this.data = data;
     }
 
     public void setSymbol(Object symbol) {
