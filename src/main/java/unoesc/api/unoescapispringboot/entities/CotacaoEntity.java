@@ -39,14 +39,6 @@ public class CotacaoEntity {
 
     // getters e setters
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public BigDecimal getCotacao() {
         return cotacao;
     }

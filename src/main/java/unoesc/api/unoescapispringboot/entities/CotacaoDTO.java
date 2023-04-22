@@ -3,56 +3,51 @@ package unoesc.api.unoescapispringboot.entities;
 import java.time.LocalDateTime;
 
 public class CotacaoDTO {
-    private Double cotacao;
-    private Double valorMercado;
-    private Long volumeTransacoes;
-    private String moeda;
-    private LocalDateTime data;
+    private Double regularMarketPrice;
+    private Double marketCap;
+    private Long regularMarketVolume;
+    private String currency;
+    private LocalDateTime regularMarketTime;
 
-    public CotacaoDTO() {
-        
-    }
-     // construtor, getters e setters
-
-    public Double getCotacao() {
-        return cotacao;
+    public Double getRegularMarketPrice() {
+        return regularMarketPrice;
     }
 
-    public void setCotacao(Double cotacao) {
-        this.cotacao = cotacao;
+    public void setRegularMarketPrice(Double regularMarketPrice) {
+        this.regularMarketPrice = regularMarketPrice;
     }
 
-    public Double getValorMercado() {
-        return valorMercado;
+    public Double getMarketCap() {
+        return marketCap;
     }
 
-    public void setValorMercado(Double valorMercado) {
-        this.valorMercado = valorMercado;
+    public void setMarketCap(Double marketCap) {
+        this.marketCap = marketCap;
     }
 
-    public Long getVolumeTransacoes() {
-        return volumeTransacoes;
+    public Long getRegularMarketVolume() {
+        return regularMarketVolume;
     }
 
-    public void setVolumeTransacoes(Long volumeTransacoes) {
-        this.volumeTransacoes = volumeTransacoes;
+    public void setRegularMarketVolume(Long regularMarketVolume) {
+        this.regularMarketVolume = regularMarketVolume;
     }
 
-    public String getMoeda() {
-        return moeda;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setMoeda(String moeda) {
-        this.moeda = moeda;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public LocalDateTime getData() {
-        return data;
+    public LocalDateTime getRegularMarketTime() {
+        return regularMarketTime;
     }
 
-    public void setData(LocalDateTime data) {
-        this.data = data;
+    public void setRegularMarketTime(LocalDateTime regularMarketTime) {
+        this.regularMarketTime = regularMarketTime;
     }
 
-   
+  
 }

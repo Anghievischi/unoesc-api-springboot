@@ -2,8 +2,8 @@ package unoesc.api.unoescapispringboot.entities;
 
 
 public class AcaoDTO {
-    private String simbolo;
-    private String nome;
+    private String symbol;
+    private String shortName;
 
     public AcaoDTO(){
 
@@ -13,19 +13,19 @@ public class AcaoDTO {
   
 
     public String getSimbolo() {
-        return simbolo;
+        return symbol;
     }
 
-    public void setSimbolo(String simbolo) {
-        this.simbolo = simbolo;
+    public void setSimbolo(String symbol) {
+        this.symbol = symbol;
     }
 
     public String getNome() {
-        return nome;
+        return shortName;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String shortName) {
+        this.shortName = shortName;
     }
 }
 

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.5</version>
+		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>unoesc.api</groupId>
@@ -43,7 +43,6 @@
 	<dependency>
     	<groupId>org.postgresql</groupId>
     	<artifactId>postgresql</artifactId>
-    	<version>42.5.4</version>
 	</dependency>
 
 		<dependency>
@@ -60,7 +59,6 @@
 		<dependency>
     <groupId>org.springframework.boot</groupId>
     	<artifactId>spring-boot-starter-data-jpa</artifactId>
-    	<version>3.0.5</version>
 	</dependency>
    <dependency>
      <groupId>com.fasterxml.jackson.core</groupId>

@@ -20,15 +20,15 @@ public class AcaoCotacaoController {
     @Autowired
     private AcaoCotacaoService acaoCotacaoService;
 
-    @GetMapping("/acoes")
+    @GetMapping("/available")
     public ResponseEntity<List<AcaoDTO>> getAcoes() {
-        List<AcaoDTO> acoes = acaoCotacaoService.getAcoes();
-        return ResponseEntity.ok(acoes);
+        List<AcaoDTO> available = acaoCotacaoService.getAcoes();
+        return ResponseEntity.ok(available);
     }
 
-    @GetMapping("/cotacao/{simbolo}")
-    public ResponseEntity<CotacaoDTO> getCotacao(@PathVariable String simbolo) {
-        CotacaoDTO cotacao = acaoCotacaoService.getCotacao(simbolo);
-        return ResponseEntity.ok(cotacao);
+    @GetMapping("/quote/{tickers}")
+    public ResponseEntity<CotacaoDTO> getCotacao(@PathVariable String tickers) {
+        CotacaoDTO quote = acaoCotacaoService.getCotacao(tickers);
+        return ResponseEntity.ok(quote);
     }
 }
