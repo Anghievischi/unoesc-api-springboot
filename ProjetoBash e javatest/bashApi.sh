@@ -25,10 +25,10 @@ do
     rm "acao_${symbol}.csv"
 
     # Seleciona o idacao correspondente ao símbolo atual
-    PGPASSWORD=123 psql -h localhost -U didi -d projeto-bash -c "SELECT idacao FROM acao WHERE simbolo='${symbol}' ORDER BY idacao DESC LIMIT 1;" > "idacao_${symbol}.txt"
+    PGPASSWORD=123 psql -t -A -h localhost -U didi -d projeto-bash -c "SELECT idacao FROM acao WHERE simbolo='${symbol}' ORDER BY idacao DESC LIMIT 1;" > "idacao_${symbol}.txt"
 
     # Obtém o idacao retornado pelo banco de dados
-    idacao=$(tail -n 1 "idacao_${symbol}.txt")
+    idacao=$(cat "idacao_${symbol}.txt")
 
     cotacao=$(jq -r --arg sym "$symbol" --arg idacao "$idacao" '[.results[0].regularMarketPrice, .results[0].marketCap, .results[0].regularMarketVolume, .results[0].currency, .results[0].regularMarketTime ] | @csv' dados.json)
 
