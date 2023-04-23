@@ -30,6 +30,7 @@ do
     # Obtém o idacao retornado pelo banco de dados
     idacao=$(cat "idacao_${symbol}.txt")
 
+    #Utiliza o comando jq para extrair informações de um arquivo JSON chamado "dados.json" e armazená-las na variável "cotacao".
     cotacao=$(jq -r --arg sym "$symbol" --arg idacao "$idacao" '[.results[0].regularMarketPrice, .results[0].marketCap, .results[0].regularMarketVolume, .results[0].currency, .results[0].regularMarketTime ] | @csv' dados.json)
 
     # Adiciona o idacao no início da linha
