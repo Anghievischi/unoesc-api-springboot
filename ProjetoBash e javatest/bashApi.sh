@@ -46,3 +46,16 @@ do
     rm "idacao_${symbol}.txt"
 
 done
+
+echo "coloque o simbolo da acao que vc quer:"
+read input 
+
+PGPASSWORD=123 psql -h localhost -U didi -d projeto-bash -c "\copy (SELECT a.simbolo as Símbolo, a.nome as Nome, 
+to_char(c.cotacao, 'FM999G999D9999' ) AS Cotação, 
+to_char(c.valormercado::numeric, 'FM999G999G999G999G900D09')  AS \"Valor de Mercado\", 
+to_char(c.volumetransacoes , 'FM999G999G999G999G900D09') AS \"Volume de Transações\", c.moeda as Moeda, 
+TO_CHAR(c.\"data\" ,'HH24:MI:SS DD/MM/YYYY') as Data 
+FROM acao a 
+JOIN (SELECT idacao, MAX(idcotacao) as idcotacao FROM cotacao GROUP BY idacao) cmax ON cmax.idacao = a.idacao 
+JOIN cotacao c ON c.idcotacao = cmax.idcotacao 
+WHERE UPPER(a.simbolo) like UPPER('%$input%')) to 'D:\projeto_unoesc\Dados-inteiros.csv' with (format csv, header, delimiter ';')"
