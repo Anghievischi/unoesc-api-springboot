@@ -15,6 +15,10 @@ Documentação para funcionamento do Arquivo BASH
 
         SUDO APT-GET -Y INSTALL POSTGRESQL
 
+•	Instalar pacote JQ
+        
+        sudo apt install jq
+
 •	Criar SuperUser no Postgres
 
         psql -U nome_do_usuario -d nome_do_banco_de_dados
